@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+
+# Build artifacts
+dist/
+
+# Python virtual env
+.venv/
+
+# IDE / OS
+.idea/
+.DS_Store
+
+# Logs
+*.log
+npm-debug.log*

@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "Yandex Archive Original Downloader",
+  "version": "1.0.0",
+  "description": "Adds a download button for original archive images and provides a popup with feature toggles.",
+  "icons": {
+    "16": "assets/icons/icon-16.png",
+    "32": "assets/icons/icon-32.png",
+    "48": "assets/icons/icon-48.png",
+    "128": "assets/icons/icon-128.png"
+  },
+  "permissions": ["downloads", "storage"],
+  "host_permissions": ["https://*.yandex.ru/*", "https://yandex.ru/*", "https://ya.ru/*"],
+  "action": {
+    "default_popup": "dist/popup.html",
+    "default_icon": {
+      "16": "assets/icons/icon-16.png",
+      "32": "assets/icons/icon-32.png"
+    }
+  },
+  "background": {
+    "service_worker": "dist/background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.yandex.ru/archive/search*",
+        "https://yandex.ru/archive/search*",
+        "https://ya.ru/archive/search*",
+        "https://*.yandex.ru/archive/*",
+        "https://yandex.ru/archive/*",
+        "https://ya.ru/archive/*"
+      ],
+      "js": ["dist/content.js"],
+      "css": ["dist/content.css"],
+      "run_at": "document_idle"
+    }
+  ]
+}
